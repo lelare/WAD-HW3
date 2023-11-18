@@ -16,6 +16,7 @@
 
 <style lang="scss" scoped>
 footer {
+    margin-top: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -23,6 +24,12 @@ footer {
     text-align: center;
     background-color: lightgrey;
     border-radius: 10px;
+    font-size: 14px;
+
+    @media (max-width: 480px) {
+        flex-direction: column-reverse;
+        row-gap: 10px;
+    }
 
     nav {
         ul {
@@ -34,9 +41,12 @@ footer {
             li {
                 margin-left: 18px;
 
+                @media (max-width: 480px) {
+                    margin: 0 8px;
+                }
+
                 a {
                     color: black;
-                    font-size: 14px;
 
                     &:hover {
                         color: #34495e;

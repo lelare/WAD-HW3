@@ -21,6 +21,12 @@ export default {
     box-sizing: border-box;
 }
 
+#app {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 16px);
+}
+
 h3 {
     margin-top: 0;
 }

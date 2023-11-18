@@ -1,5 +1,6 @@
 <template>
     <header>
+        <img src="@/assets/logo.svg" alt="" />
         <nav>
             <ul>
                 <li><router-link to="/">Home</router-link></li>
@@ -60,7 +61,7 @@ nav {
         a {
             padding: 10px 15px;
             color: black;
-            font-size: 0.99em;
+            font-size: 1em;
 
             &:hover {
                 background-color: #34495e;

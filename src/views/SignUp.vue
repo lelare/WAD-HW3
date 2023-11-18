@@ -31,11 +31,17 @@ data: function() {
    validatePassword:'',
   }},
   methods: {
-   /* Validate password */
    validateForm(){
-   this.validatePassword = (this.password.length <8 || this.password> 15)? 'password must be between 8-15 chars':''
-   let regex =/^[A-Z](?=.*[0-9])(?=.*_)(?=.*[a-z].*[a-z])[A-Za-z0-9_]*$/;;
-   this.validatePassword = regex.test(this.password)? '':'The password is not valid! It must contain a combination of the first letter being Uppercase,at least 2 Lowercase characters, 1 Digits (0-9), and _'
+   let regex =/^[A-Z](?=.*[0-9])(?=.*_)(?=.*[a-z].*[a-z])[A-Za-z0-9_]*$/;
+   let second_condition = regex.test(this.password)
+
+   if((this.password.length < 8 || this.password.length > 15)){
+    console.log(this.password.length)
+    this.validatePassword = 'Password must be between 8-15 chars'
+   } else if (!second_condition) {
+    console.log(second_condition)
+    this.validatePassword = 'The password is not valid! It must contain a combination of the first letter being Uppercase,at 2 Lowercase characters, 1 Digits (0-9), and _'
+   }
    },
 
   }

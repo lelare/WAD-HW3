@@ -34,9 +34,10 @@ data: function() {
    /* Validate password */
    validateForm(){
    this.validatePassword = (this.password.length <8 || this.password> 15)? 'password must be between 8-15 chars':''
-   let regex = /[A-Z][a-z]{2,}[0-9]+_.*$/
-   this.validatePassword = regex.test(this.password)? '':'The password is not valid! It must contain a combination of at least 1 Uppercase, 2 Lowercase characters, 1 Digits (0-9), and _'
-   }
+   let regex =/^[A-Z](?=.*[0-9])(?=.*_)(?=.*[a-z].*[a-z])[A-Za-z0-9_]*$/;;
+   this.validatePassword = regex.test(this.password)? '':'The password is not valid! It must contain a combination of the first letter being Uppercase,at least 2 Lowercase characters, 1 Digits (0-9), and _'
+   },
+
   }
 }
 </script>

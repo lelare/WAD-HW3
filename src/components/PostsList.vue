@@ -6,15 +6,15 @@
                     <img src="@/assets/user.png" alt="profile-img" />
                     <span>{{ post.author_name }}</span>
                 </div>
-                <span>Oct 22, 2022</span>
+                <span>{{ formatDate(post.created_time) }}</span>
             </div>
             <div class="post_body">
-                <img src="@/assets/tartu-old-city.jpg" alt="tartu" />
+                <img v-if="post.img" :src="post.img.url" :alt="post.img.alt" />
                 <p>{{ post.message }}</p>
             </div>
             <div class="post_footer">
                 <button v-on:click="IncreaseLike(post.id)"><img src="@/assets/like.png" alt="like-icon" /></button>
-                <span>{{ post.like_count }}</span>
+                <span>{{ post.like_count }} likes</span>
                 <img src="@/assets/comment.png" alt="comment-icon" />
                 <span>{{ post.comment_count }}</span>
             </div>
@@ -30,6 +30,22 @@ export default {
         },
     },
     methods: {
+        formatDate: function (str) {
+            let date = new Date(str);
+
+            // let dateFormatter = new Intl.DateTimeFormat("en-US", {
+            //     year: "numeric",
+            //     month: "short",
+            //     day: "numeric",
+            // });
+
+            // let formattedDateString = dateFormatter.format(date);
+            // return formattedDateString;
+
+            // or
+            const options = { year: "numeric", month: "short", day: "numeric" };
+            return date.toLocaleDateString("en-US", options);
+        },
         IncreaseLike: function (postId) {
             this.$store.dispatch("IncreaseLikeAct", postId);
         },
@@ -95,6 +111,13 @@ article {
     &_footer {
         display: flex;
         align-items: center;
+
+        button {
+            padding: 0;
+            border: 0;
+            background-color: transparent;
+            cursor: pointer;
+        }
 
         img {
             width: 24px;

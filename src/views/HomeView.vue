@@ -3,14 +3,14 @@
         <aside></aside>
         <div>
             <PostsList />
-            <button v-on:click="ResetLikes">Reset Prices</button>
+            <button v-on:click="ResetLikes">Reset Likes</button>
         </div>
         <aside></aside>
     </main>
 </template>
 
 <script>
-import PostsList from "@/components/Posts/PostsList.vue";
+import PostsList from "@/components/PostsList.vue";
 
 export default {
     name: "HomeView",

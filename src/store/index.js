@@ -1,9 +1,11 @@
 import { createStore } from "vuex";
 
 export default createStore({
+    strict: true,
     state: {
         posts: [
             {
+                id: 1,
                 message: "University of Tartu: Delta",
                 author_name: "Gulnar Mammadli",
                 img: { url: "https://i.postimg.cc/ZnRWHbhW/delta.jpg", alt: "Delta Centre" },
@@ -12,6 +14,7 @@ export default createStore({
                 created_time: "2022/09/01 11:45",
             },
             {
+                id: 2,
                 message: "Tartu 2022",
                 author_name: "Leyla Rahimli",
                 img: { url: "https://i.postimg.cc/BvLNY34w/tartu-old-city.jpg", alt: "Tartu city" },
@@ -20,6 +23,7 @@ export default createStore({
                 created_time: "2022/10/22 10:32",
             },
             {
+                id: 3,
                 message: "Does anyone know in which room the lab is today?",
                 author_name: "Darius Stevens",
                 img: null,
@@ -30,7 +34,30 @@ export default createStore({
         ],
     },
     getters: {},
-    mutations: {},
-    actions: {},
+    mutations: {
+        IncreaseLike: (state, postId) => {
+            const post = state.posts.find((el) => el.id === postId);
+            if (post) {
+                post.like_count += 1;
+            }
+        },
+        ResetLikes: (state) => {
+            state.posts.forEach((post) => {
+                post.like_count = 0;
+            });
+        },
+    },
+    actions: {
+        IncreaseLikeAct: (act, postId) => {
+            setTimeout(function () {
+                act.commit("IncreaseLike", postId);
+            }, 100);
+        },
+        ResetLikesAct: (act) => {
+            setTimeout(function () {
+                act.commit("ResetLikes");
+            }, 100);
+        },
+    },
     modules: {},
 });

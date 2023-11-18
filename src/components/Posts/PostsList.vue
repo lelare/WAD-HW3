@@ -13,7 +13,7 @@
                 <p>{{ post.message }}</p>
             </div>
             <div class="post_footer">
-                <img src="@/assets/like.png" alt="like-icon" />
+                <button v-on:click="IncreaseLike(post.id)"><img src="@/assets/like.png" alt="like-icon" /></button>
                 <span>{{ post.like_count }}</span>
                 <img src="@/assets/comment.png" alt="comment-icon" />
                 <span>{{ post.comment_count }}</span>
@@ -29,6 +29,11 @@ export default {
             return this.$store.state.posts;
         },
     },
+    methods: {
+        IncreaseLike: function (postId) {
+            this.$store.dispatch("IncreaseLikeAct", postId);
+        },
+    },
 };
 </script>
 
@@ -40,59 +45,53 @@ export default {
     padding: 15px;
 }
 article {
-    &:not(:last-child) {
-        margin-bottom: 20px;
-    }
-}
-
-.post_heading {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    column-gap: 8px;
-    row-gap: 4px;
-}
-
-@media (max-width: 480px) {
-    .post_heading > span {
-        font-size: 14px;
-    }
-}
-
-.post_author {
-    display: flex;
-    align-items: center;
-    column-gap: 8px;
-}
-
-.post_author > img {
-    width: 30px;
-    height: 30px;
-}
-
-.post_body {
-    padding-top: 16px;
-    padding-bottom: 16px;
-}
-
-.post_body > img {
-    width: 100%;
-}
-
-.post_body > p {
-    margin: 0;
-}
-
-.post_body > img ~ p {
-    margin-top: 10px;
-}
-
-.post_body > :not(:first-child) {
-    margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .post {
+    &_heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        column-gap: 8px;
+        row-gap: 4px;
+
+        @media (max-width: 480px) {
+            & > span {
+                font-size: 14px;
+            }
+        }
+    }
+
+    &_author {
+        display: flex;
+        align-items: center;
+        column-gap: 8px;
+
+        & > img {
+            width: 30px;
+            height: 30px;
+        }
+    }
+
+    &_body {
+        padding-top: 16px;
+        padding-bottom: 16px;
+
+        & > img {
+            width: 100%;
+
+            & ~ p {
+                margin-top: 10px;
+            }
+        }
+
+        & > p {
+            margin: 0;
+        }
+    }
+
     &_footer {
         display: flex;
         align-items: center;

@@ -1,7 +1,10 @@
 <template>
     <main class="flex-wrapper">
         <aside></aside>
-        <PostsList />
+        <div>
+            <PostsList />
+            <button v-on:click="ResetLikes">Reset Prices</button>
+        </div>
         <aside></aside>
     </main>
 </template>
@@ -13,6 +16,11 @@ export default {
     name: "HomeView",
     components: {
         PostsList,
+    },
+    methods: {
+        ResetLikes: function () {
+            this.$store.dispatch("ResetLikesAct");
+        },
     },
 };
 </script>

@@ -1,12 +1,12 @@
 <template>
-    <main class="flex-wrapper">
+    <main>
         <aside></aside>
-        <div>
+        <section>
             <PostsList />
             <div class="text-center">
                 <button class="btn" v-on:click="ResetLikes">Reset Likes</button>
             </div>
-        </div>
+        </section>
         <aside></aside>
     </main>
 </template>

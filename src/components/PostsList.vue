@@ -1,5 +1,5 @@
 <template>
-    <section id="box-wrapper">
+    <div>
         <article class="box" v-for="post in postsList" :key="post.id">
             <div class="post_heading">
                 <div class="post_author">
@@ -19,7 +19,7 @@
                 <span>{{ post.comment_count }}</span>
             </div>
         </article>
-    </section>
+    </div>
 </template>
 
 <script>

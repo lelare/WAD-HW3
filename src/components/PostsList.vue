@@ -54,12 +54,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.box {
-    background-color: lightgray;
-    border: 1px solid darkgray;
-    border-radius: 10px;
-    padding: 15px;
-}
 article {
     margin-bottom: 20px;
 }

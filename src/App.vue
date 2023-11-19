@@ -21,14 +21,28 @@ export default {
     box-sizing: border-box;
 }
 
+main {
+    padding: 25px 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
 #app {
     display: flex;
     flex-direction: column;
     min-height: calc(100vh - 16px);
 }
 
-h3 {
-    margin-top: 0;
+.box {
+    background-color: lightgray;
+    border: 1px solid darkgray;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.text-center {
+    text-align: center;
 }
 
 ul {
@@ -40,5 +54,21 @@ ul {
 a {
     color: mediumblue;
     text-decoration: none;
+}
+
+.btn {
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 36px;
+    border: 0;
+    border-radius: 15px;
+    background-color: #5597b3;
+    color: #fff;
+    transition: 0.5s;
+    cursor: pointer;
+
+    &:hover {
+        background: #3a5088;
+    }
 }
 </style>

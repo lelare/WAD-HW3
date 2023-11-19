@@ -1,9 +1,9 @@
 <template>
     <div class="profile">
         <button class="dropbtn" v-on:click="toggleDropdown">
-            <img id="photo" src="@/assets/user.png" alt="Profile picture" />
+            <img src="@/assets/user.png" alt="Profile picture" />
         </button>
-        <div id="dropdown" class="dropdown-content" :class="{ show: isShown }">
+        <div class="dropdown-content" :class="{ show: isShown }">
             <a href="#">John Paul</a>
             <a href="#">paul@ut.ee</a>
             <a href="#">logout</a>
@@ -65,9 +65,10 @@ export default {
                 background-color: #ddd;
             }
         }
+
+        &.show {
+            display: block;
+        }
     }
-}
-.show {
-    display: block;
 }
 </style>

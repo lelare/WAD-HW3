@@ -3,7 +3,9 @@
         <aside></aside>
         <div>
             <PostsList />
-            <button class="reset-button" v-on:click="ResetLikes">Reset Likes</button>
+            <div class="text-center">
+                <button class="btn" v-on:click="ResetLikes">Reset Likes</button>
+            </div>
         </div>
         <aside></aside>
     </main>
@@ -26,13 +28,6 @@ export default {
 </script>
 
 <style lang="scss">
-main {
-    padding: 25px 0;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
 aside {
     flex: 0.5 1 0;
     background-color: lightgray;
@@ -43,20 +38,6 @@ aside {
 
 section {
     flex: 2 0 0;
-}
-
-.reset-button {
-    margin: 0 auto;
-    padding: 0 20px;
-    height: 36px;
-    background-color: blue;
-    color: #fff;
-}
-
-@media (min-width: 481px) {
-    section.section-small {
-        flex: 0 0 300px;
-    }
 }
 
 @media (max-width: 480px) {

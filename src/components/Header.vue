@@ -30,11 +30,20 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @media (max-width: 480px) {
+        flex-wrap: wrap;
+    }
 }
 
 nav {
     ul {
         display: flex;
+    }
+
+    @media (max-width: 480px) {
+        order: 3;
+        margin: 20px auto 0;
     }
 
     li {
@@ -65,10 +74,5 @@ nav {
             }
         }
     }
-}
-
-#photo {
-    width: 100%;
-    height: 100%;
 }
 </style>

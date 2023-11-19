@@ -33,10 +33,8 @@ footer {
 
     nav {
         ul {
-            padding-left: 0;
             display: flex;
             align-items: center;
-            list-style: none;
 
             li {
                 margin-left: 18px;

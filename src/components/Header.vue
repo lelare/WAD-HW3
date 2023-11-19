@@ -7,23 +7,18 @@
                 <li><router-link to="/signUp">SignUp</router-link></li>
             </ul>
         </nav>
-        <div class="profile">
-            <button class="dropbtn">
-                <img id="photo" src="res/images/user.png" alt="Profile picture" />
-            </button>
-            <div id="dropdown" class="dropdown-content">
-                <a href="#">John Paul</a>
-                <a href="#">paul@ut.ee</a>
-                <a href="#">logout</a>
-            </div>
-        </div>
+        <ProfileDropdown />
     </header>
 </template>
 
 <script>
-// export default {
-//     name: "Header",
-// };
+import ProfileDropdown from "./ProfileDropdown.vue";
+
+export default {
+    components: {
+        ProfileDropdown,
+    },
+};
 </script>
 
 <style lang="scss" scoped>

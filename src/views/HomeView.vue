@@ -3,7 +3,7 @@
         <aside></aside>
         <div>
             <PostsList />
-            <button v-on:click="ResetLikes">Reset Likes</button>
+            <button class="reset-button" v-on:click="ResetLikes">Reset Likes</button>
         </div>
         <aside></aside>
     </main>
@@ -43,6 +43,14 @@ aside {
 
 section {
     flex: 2 0 0;
+}
+
+.reset-button {
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 36px;
+    background-color: blue;
+    color: #fff;
 }
 
 @media (min-width: 481px) {
